@@ -1,0 +1,55 @@
+scalar DateTime
+
+type Post {
+  id: Int!
+  title: String!
+  content: String
+  published: Boolean!
+  author: User
+  viewCount: Int!
+  createdAt: DateTime!
+}
+
+type User {
+  id: Int!
+  email: String!
+  name: String
+}
+
+type Query {
+  allUsers: [User!]!
+  draftsByUser(input: UserUniqueInput): [Post!]
+  feed(q: String, sort: FeedSort, skip: Int, take: Int): [Post!]!
+}
+
+type Mutation {
+  createDraft(authorEmail: String!, data: PostCreateInput!): Post
+  deletePost(id: Int!): Post
+  incrementPostViewCount(id: Int!): Post
+  signup(data: UserCreateInput!): User
+  togglePublishPost(id: Int!): Post
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input UserUniqueInput {
+  email: String
+  id: Int
+}
+
+input FeedSort {
+  updatedAt: SortOrder!
+}
+
+input PostCreateInput {
+  title: String!
+  content: String
+}
+
+input UserCreateInput {
+  email: String!
+  name: String
+}
