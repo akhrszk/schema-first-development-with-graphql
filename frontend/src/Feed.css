@@ -1,0 +1,25 @@
+.Feed {
+  padding: 5px;
+}
+
+.Feed-Row {
+  padding: 5px;
+}
+
+.Feed-Row-Title {
+  font-weight: bold;
+}
+
+.Post-Author {
+  font-size: 12px;
+}
+
+.Post-DateTime {
+  font-size: 12px;
+  color: dimgray;
+}
+
+.Post-Views {
+  font-size: 11px;
+  color: dimgray;
+}

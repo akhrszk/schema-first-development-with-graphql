@@ -1,0 +1,15 @@
+query feed($q: String!, $take: Int, $skip: Int, $sort: SortOrder!) {
+  feed(q: $q, sort: { updatedAt: $sort }, take: $take, skip: $skip) {
+    id
+    title
+    content
+    viewCount
+    createdAt
+    author {
+      id
+      name
+    }
+  }
+}
+
+scalar DateTime
