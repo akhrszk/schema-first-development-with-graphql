@@ -11,5 +11,3 @@ query feed($q: String!, $take: Int, $skip: Int, $sort: SortOrder!) {
     }
   }
 }
-
-scalar DateTime
